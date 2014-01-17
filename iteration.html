@@ -1,0 +1,26 @@
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="handlebars.js"></script>
+
+<span id="content-placeholder"></span>
+
+<script id="template_1" type="text/x-handlebars-template">
+ <div style="border: 1px solid black; width: 350px">
+   {{#each people}}
+     {{firstName}} {{lastName}} <br />
+   {{/each}}
+ </div>
+</script>
+
+<script>
+
+ var source = $("#template_1").html();
+ var template = Handlebars.compile(source);
+ var context = {people: [
+    {firstName: "Yehuda", lastName: "Katz"},
+    {firstName: "Carl", lastName: "Lerche"},
+    {firstName: "Alan", lastName: "Johnson"}
+  ]}
+ var html = template(context);
+ $("#content-placeholder").html(html);
+ 
+</script>
