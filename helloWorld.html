@@ -1,0 +1,24 @@
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="handlebars.js"></script>
+
+<span id="content-placeholder"></span>
+
+<script id="template_1" type="text/x-handlebars-template">
+ <div style="border: 1px solid black; width: 350px">
+   <i>{{message}}</i><br>
+   {{note}}
+ </div>
+</script>
+
+<script>
+
+ var source = $("#template_1").html();
+ console.log("source: " + source);
+ var template = Handlebars.compile(source);
+ console.log("template: \n" + template);
+ var context = {message: "Hello world!", 
+   note: "Content generated using Handlebars.js template."};
+ var html = template(context);
+ $("#content-placeholder").html(html);
+
+</script>
